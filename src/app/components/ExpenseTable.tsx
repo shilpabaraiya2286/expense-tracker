@@ -10,7 +10,7 @@ import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Typography, Box, MenuItem, Select, FormControl, InputLabel, Button, TextField, Stack } from "@mui/material";
+import { Box, MenuItem, Select, FormControl, InputLabel, Button, TextField, Stack } from "@mui/material";
 import dayjs from "dayjs";
 
 interface ExpenseEntry {

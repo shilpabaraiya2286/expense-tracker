@@ -14,7 +14,7 @@ import { supabase } from "../lib/supabase";
 import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
-import { Paper, Grid, Card, CardContent } from "@mui/material";
+import { Card, CardContent } from "@mui/material";
 
 interface ExpenseEntry {
   id: number;
@@ -143,10 +143,10 @@ export default function Home() {
   React.useEffect(() => {
     checkTableStructure();
     fetchExpenses();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // For EntryForm (Add Data)
-  const handleSaveEntry = async (data: any) => {
+  const handleSaveEntry = async (data: ExpenseEntry) => {
     setLoading(true);
     try {
       console.log('Saving entry:', data);
@@ -241,9 +241,9 @@ export default function Home() {
       
       <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
         {/* Summary Cards - Above Table */}
-        <Grid container spacing={3} sx={{ mb: 3 }}>
+        <Box sx={{ display: "flex", gap: 3, mb: 3, flexWrap: "wrap" }}>
           {/* Total Expenses Card */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Box sx={{ flex: "1 1 250px", minWidth: 0 }}>
             <Card sx={{ 
               borderRadius: 3, 
               boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
@@ -258,10 +258,10 @@ export default function Home() {
                 </Typography>
               </CardContent>
             </Card>
-          </Grid>
+          </Box>
 
           {/* Total Income Card */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Box sx={{ flex: "1 1 250px", minWidth: 0 }}>
             <Card sx={{ 
               borderRadius: 3, 
               boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
@@ -279,10 +279,10 @@ export default function Home() {
                 </Typography>
               </CardContent>
             </Card>
-          </Grid>
+          </Box>
 
           {/* Net Balance Card */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Box sx={{ flex: "1 1 250px", minWidth: 0 }}>
             <Card sx={{ 
               borderRadius: 3, 
               boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
@@ -300,10 +300,10 @@ export default function Home() {
                 </Typography>
               </CardContent>
             </Card>
-          </Grid>
+          </Box>
 
           {/* Entries Count Card */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Box sx={{ flex: "1 1 250px", minWidth: 0 }}>
             <Card sx={{ 
               borderRadius: 3, 
               boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
@@ -318,8 +318,8 @@ export default function Home() {
                 </Typography>
               </CardContent>
             </Card>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
 
         {/* Main Table */}
         <Card sx={{ 

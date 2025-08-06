@@ -13,7 +13,7 @@ if (!supabaseUrl || !supabaseAnonKey) {
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 // Test the connection
-supabase.from('home_expenses').select('count').limit(1).then(({ data, error }) => {
+supabase.from('home_expenses').select('count').limit(1).then(({ error }) => {
   if (error) {
     console.error('Supabase connection error:', error)
   } else {

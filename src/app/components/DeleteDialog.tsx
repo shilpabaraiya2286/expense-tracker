@@ -28,7 +28,7 @@ export default function DeleteDialog({ open, onClose, onConfirm, itemDescription
         </Typography>
         {itemDescription && (
           <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-            "{itemDescription}"
+            &ldquo;{itemDescription}&rdquo;
           </Typography>
         )}
         <Typography variant="body2" color="error" sx={{ mt: 2 }}>
